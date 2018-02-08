@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/xuntu.css" />
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	</head>
+
+	<body>
+		<div id="div" style="display: ;">
+			<div id="div1">
+				<img id="preview" src="img/04.jpg" />
+				<img id="biankuang" src="img/1.png" />
+
+			</div>
+			<div id="div2">
+				<img id="img1" src="img/1.png" onclick="changeImg(1)" />
+				<img id="img2" src="img/2.png" onclick="changeImg(2)" />
+				<img id="img3" src="img/3.png" onclick="changeImg(3)" />
+				<img id="img4" src="img/4.png" onclick="changeImg(4)" />
+
+			</div>
+			<div id="div3">
+				<input id="btn1" type="file" />
+				<input type="button" name="btn2" id="btn2" value="选择图片" />
+				<input type="button" name="btn3" id="btn3" value="生成贺卡" onclick="hecheng()" />
+
+			</div>
+
+		</div>
+		<div id="divnew" style="display:none;">
+			<div id="divnew1">
+				<img id="imgnew" />
+			</div>
+			<div id="divnew2">
+				<img id="imgnew2" src="img/tishi.png" />
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById('btn1').onclick = function() {
+					document.getElementById('btn2').style.color = "#3a8ee6";
+					document.getElementById('btn2').style.backgroundColor = "#ecf5ff";
+					document.getElementById('btn2').style.borderColor = "#3a8ee6";
+				}
+			}
+
+			function changeImg(num) {
+				document.all['biankuang'].src = 'img/' + num + '.png';
+
+				pic1 = document.getElementById("preview").src;
+				pic2 = document.getElementById("biankuang").src;
+				data = [pic1, pic2]
+
+			}
+			$(function() {
+				$("#btn1").change(function() {
+					var $file = $(this);
+					var fileObj = $file[0];
+					var windowURL = window.URL || window.webkitURL;
+					var dataURL;
+					var $img = $("#preview");
+
+					if(fileObj && fileObj.files && fileObj.files[0]) {
+						dataURL = windowURL.createObjectURL(fileObj.files[0]);
+						$img.attr('src', dataURL);
+					} else {
+						dataURL = $file.val();
+						var imgObj = document.getElementById("preview");
+						imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+						imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+
+					}
+				});
+			});
+
+			function hecheng() {
+				pic1 = document.getElementById("preview").src;
+				pic2 = document.getElementById("biankuang").src;
+				data = [pic1, pic2];
+				document.getElementById('btn3').onclick = function() {
+					document.getElementById('btn3').style.color = "#3a8ee6";
+					document.getElementById('btn3').style.backgroundColor = "#ecf5ff";
+					document.getElementById('btn3').style.borderColor = "#3a8ee6";
+				}
+				var div = document.getElementById("div");
+				var divnew = document.getElementById("divnew");
+				if(divnew.style.display == "none") {
+					divnew.style.display = "block";
+					div.style.display = "none";
+
+				}
+				document.getElementById('btn2').style.color = "#272822";
+				document.getElementById('btn2').style.backgroundColor = "#FFFFFF";
+				document.getElementById('btn2').style.borderColor = "#d8dce5";
+				draw(function() {
+
+					document.getElementById('imgnew').src = base64[0];
+
+				})
+				
+			}
+
+			pic1 = document.getElementById("preview").src;
+			pic2 = document.getElementById("biankuang").src;
+			data = [pic1, pic2],
+				base64 = [];
+
+			function draw(fn) {
+
+				var c = document.createElement('canvas'),
+
+					ctx = c.getContext('2d'),
+
+					len = data.length;
+
+				c.width = 1100;
+
+				c.height = 1500;
+
+				ctx.rect(0, 0, c.width, c.height);
+
+				ctx.fillStyle = '#fff';
+
+				ctx.fill();
+
+				function drawing(n) {
+
+					if(n < len) {
+
+						var img = new Image;
+
+						//img.crossOrigin = 'Anonymous'; //解决跨域
+
+						img.src = data[n];
+
+						img.onload = function() {
+
+							ctx.drawImage(img, 0, 0, 1100, 1500);
+
+							drawing(n + 1); //递归
+
+						}
+
+					} else {
+
+						//保存生成作品图片
+						base64.push(c.toDataURL("image/jpeg"));
+						fn();
+
+					}
+
+				}
+
+				drawing(0);
+
+			}
+		</script>
+
+	</body>
+
+</html>

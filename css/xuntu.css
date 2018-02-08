@@ -1,0 +1,148 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+}
+
+html {
+	height: 100%;
+}
+
+#div {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+#div1 {
+	height: 75%;
+	widows: 100%;
+}
+
+#div2 {
+	top: 75%;
+	height: 13%;
+	widows: 100%;
+}
+
+#div3 {
+	height: 12%;
+	widows: 100%;
+
+}
+
+#div1 img {
+	position: absolute;
+	height: 75%;
+	width: 80%;
+	left: 10%;
+	z-index: 10;
+}
+#btn1
+{
+	position: absolute;
+	opacity: 0;
+	width: 30%;
+	height: 5%;
+	bottom: 4%;
+	left: 20%;
+	z-index: 20;
+}
+#btn2
+{
+	position: absolute;
+	/*opacity: 0;*/
+	width: 25%;
+	height: 5%;
+	bottom: 4%;
+	left: 18%;
+	border-radius: 9%;
+	border-color: #d8dce5;
+	background-color: white;
+	color:#272822;
+	font-size: 160%;
+}
+#btn3
+{
+	position: absolute;
+	/*opacity: 0;*/
+	width: 25%;
+	height: 5%;
+	bottom: 4%;
+	left: 57%;
+	border-radius: 9%;
+	border-color: #d8dce5;
+	background-color: white;
+	color:#272822;
+	font-size: 160%;
+}
+#btn2.hover
+{
+	background-color:#ecf55f;
+}
+#btn3.active
+{
+	background-color:#ecf55f;
+}
+#img1
+{
+	position: absolute;
+	height: 11%;
+	width: 13%;
+	left:7.5% ;
+	top: 76%;
+}
+#img2
+{
+	position: absolute;
+	height: 11%;
+	width: 13%;
+	left:31.5% ;
+	top: 76%;
+}
+#img3
+{
+	position: absolute;
+	height: 11%;
+	width: 13%;
+	left:55.5% ;
+	top: 76%;
+}
+#img4
+{
+	position: absolute;
+	height: 11%;
+	width: 13%;
+	left:79.5% ;
+	top: 76%;
+}
+#divnew {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+#divnew1 {
+	height: 75%;
+	widows: 100%;
+
+}
+#divnew1 img {
+	position: absolute;
+	height: 75%;
+	width: 80%;
+	left: 10%;
+	z-index: 10;
+}
+#imgnew2{
+	position: absolute;
+	height: 15%;
+	width: 65%;
+	top: 78%;
+	left: 17.5%;
+}

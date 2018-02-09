@@ -148,7 +148,7 @@ function rotateImg(img, direction,canvas) {
         var width = img.width;  */
         var height = canvas.height;  
         var width = canvas.width;  
-        alert(width+','+height);
+        //alert(width+','+height);
         //var step = img.getAttribute('step');  
         var step = 2;  
         if (step == null) {  

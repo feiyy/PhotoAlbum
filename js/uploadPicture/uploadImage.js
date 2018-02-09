@@ -38,13 +38,13 @@ function selectFileImage(fileObj) {
 					expectHeight = 1200;
 					expectWidth = expectHeight * this.naturalWidth / this.naturalHeight;
 				}
-				alert(expectWidth+','+expectHeight);
+				//alert(expectWidth+','+expectHeight);
 				var canvas = document.createElement("canvas");
 				var ctx = canvas.getContext("2d");
 				canvas.width = expectWidth;
 				canvas.height = expectHeight;
 				ctx.drawImage(this, 0, 0, expectWidth, expectHeight);
-				alert(canvas.width+','+canvas.height);
+				//alert(canvas.width+','+canvas.height);
 				
 				var base64 = null;
 				var mpImg = new MegaPixImage(image);
@@ -124,7 +124,10 @@ function selectFileImage(fileObj) {
 					base64 = canvas.toDataURL("image/jpeg", 0.8);*/
 				}
 				//uploadImage(base64);
-				$("#myImage").attr("src", base64);
+				//$("#myImage").attr("src", base64);
+				var imgObj = document.getElementById("preview");
+				$(imgObj).attr("src",base64);
+				
 			};
 		};
 		oReader.readAsDataURL(file);

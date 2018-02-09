@@ -6,6 +6,9 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/xuntu.css" />
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="js/uploadPicture/mobileBUGFix.mini.js" ></script>
+    <script type="text/javascript" src="js/uploadPicture/uploadImage.js" ></script>
+        <script type="text/javascript" src="js/exif.js" ></script>
 	</head>
 
 	<body>
@@ -23,7 +26,7 @@
 
 			</div>
 			<div id="div3">
-				<input id="btn1" type="file" />
+				<input id="btn1" type="file" onchange="selectFileImage(this);"/>
 				<input type="button" name="btn2" id="btn2" value="选择图片" />
 				<input type="button" name="btn3" id="btn3" value="生成贺卡" onclick="hecheng()" />
 
@@ -56,7 +59,7 @@
 				data = [pic1, pic2]
 
 			}
-			$(function() {
+		/*	$(function() {
 				$("#btn1").change(function() {
 					var $file = $(this);
 					var fileObj = $file[0];
@@ -75,7 +78,7 @@
 
 					}
 				});
-			});
+			});*/
 
 			function hecheng() {
 				pic1 = document.getElementById("preview").src;

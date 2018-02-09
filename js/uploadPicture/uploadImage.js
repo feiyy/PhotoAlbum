@@ -125,6 +125,7 @@ function selectFileImage(fileObj) {
 				}
 				//uploadImage(base64);
 				//$("#myImage").attr("src", base64);
+				//alert(base64);
 				var imgObj = document.getElementById("preview");
 				$(imgObj).attr("src",base64);
 				

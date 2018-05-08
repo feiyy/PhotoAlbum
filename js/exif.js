@@ -4,6 +4,8 @@
 
     var root = this;
 
+    //ggggg
+
     var EXIF = function(obj) {
         if (obj instanceof EXIF) return obj;
         if (!(this instanceof EXIF)) return new EXIF(obj);
